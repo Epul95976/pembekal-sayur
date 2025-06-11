@@ -1,0 +1,761 @@
+/* --- CSS Reset Asas --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Memastikan padding dan border tidak menambah lebar elemen */
+}
+
+body {
+    font-family: 'Arial', sans-serif; /* Fon asas, boleh tukar nanti */
+    line-height: 1.6;
+    color: #333; /* Warna teks utama yang gelap */
+    /* Latar belakang penuh laman web: Pastikan anda menukar 'images/sayur background.jpg' */
+    /* kepada laluan gambar latar belakang sayur-sayuran anda yang betul */
+    background: url('images/sayur background.jpg') no-repeat center center fixed;
+    background-size: cover; /* Pastikan gambar meliputi seluruh ruang */
+    background-color: #f0f8f0; /* Warna fallback: Hijau lumut muda */
+}
+
+/* --- Variabel Warna (mudah untuk diurus) --- */
+:root {
+    --primary-color: #5cb85c; /* Hijau Segar, seperti daun sayur */
+    --secondary-color: #ff9800; /* Oren Cerah, seperti buah-buahan sitrus */
+    --accent-color: #4CAF50; /* Hijau Hutan/Gelap, untuk kontras atau elemen penting */
+    --text-dark: #333; /* Teks gelap, mudah dibaca */
+    --text-light: #fff; /* Teks putih */
+    --bg-light: rgba(255, 255, 255, 0.9); /* Latar belakang seksyen cerah, sedikit telus */
+    --bg-dark: rgba(46, 79, 79, 0.95); /* Latar belakang seksyen gelap, hijau kebiruan tua, lebih telus */
+}
+
+/* --- Gaya Kontena Umum --- */
+.container {
+    max-width: 1200px; /* Lebar maksimum kandungan */
+    margin: 0 auto; /* Tengah kandungan */
+    padding: 0 20px; /* Padding di kiri dan kanan */
+}
+
+/* --- Gaya Header --- */
+header {
+    background-color: var(--primary-color); /* Warna hijau untuk header */
+    color: var(--text-light); /* Warna teks putih */
+    padding: 1rem 0;
+    position: sticky; /* Melekat di bahagian atas apabila scroll */
+    top: 0;
+    z-index: 1000; /* Memastikan header berada di atas elemen lain */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow hitam lembut untuk header */
+}
+
+header .container {
+    display: flex; /* Guna flexbox untuk susun atur dalam header */
+    justify-content: space-between; /* Letakkan logo di kiri, navigasi di kanan */
+    align-items: center; /* Pusat secara menegak */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px; /* Saiz logo */
+    margin-right: 10px;
+    border-radius: 5px; /* Sedikit lengkungan pada logo */
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    margin: 0;
+    color: var(--text-light);
+}
+
+.logo a {
+    text-decoration: none;
+    color: inherit; /* Warisi warna dari parent */
+    display: flex;
+    align-items: center;
+}
+
+.main-nav ul {
+    list-style: none; /* Buang bullet point */
+    display: flex; /* Susun pautan secara mendatar */
+}
+
+.main-nav ul li {
+    margin-left: 25px; /* Jarak antara pautan navigasi */
+}
+
+.main-nav ul li a {
+    color: var(--text-light);
+    text-decoration: none; /* Buang garisan bawah */
+    font-weight: bold;
+    padding: 5px 0;
+    transition: color 0.3s ease; /* Kesan peralihan warna */
+}
+
+.main-nav ul li a:hover {
+    color: var(--secondary-color); /* Ubah warna apabila hover */
+}
+
+/* --- Butang Menu Mudah Alih (Tersembunyi pada desktop) --- */
+.mobile-menu-toggle {
+    display: none; /* Sembunyikan pada desktop secara lalai */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.mobile-menu-toggle .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-light);
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+/* --- Gaya Butang Umum --- */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Tambah box-shadow ke transition */
+    margin-top: 15px;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Menambah shadow secara lalai */
+}
+
+.btn:hover {
+    transform: translateY(-2px); /* Kesan timbul sedikit */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Shadow lebih ketara bila hover */
+}
+
+.primary-btn {
+    background-color: var(--secondary-color); /* Warna oren cerah */
+    color: var(--text-light); /* Teks putih supaya kontras */
+}
+
+.primary-btn:hover {
+    background-color: #ffb74d; /* Oren yang lebih cerah */
+}
+
+.secondary-btn {
+    background-color: var(--accent-color); /* Warna hijau hutan */
+    color: var(--text-light);
+    margin-left: 10px;
+}
+
+.secondary-btn:hover {
+    background-color: #66bb6a; /* Hijau hutan yang lebih cerah */
+}
+
+.btn-small { /* Gaya untuk butang dalam item produk jika anda ingin menggunakannya */
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    border-radius: 3px;
+    margin-top: 10px;
+}
+
+/* --- Gaya Hero Section --- */
+.hero {
+    background: none; /* Latar belakang kini di body */
+    color: var(--text-light);
+    text-align: center;
+    padding: 100px 0;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.hero::before { /* Overlay untuk menjadikan teks lebih mudah dibaca */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Overlay gelap */
+    z-index: 1;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 2; /* Pastikan kandungan di atas overlay */
+}
+
+.hero h2 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* --- Gaya Seksyen Umum --- */
+section {
+    padding: 80px 0;
+    text-align: center;
+    background-color: var(--bg-light); /* Latar belakang seksyen cerah, sedikit telus */
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: var(--accent-color); /* Tajuk seksyen dengan warna hijau hutan */
+    position: relative;
+    display: inline-block; /* Untuk garisan bawah */
+}
+
+section h2::after { /* Garisan bawah untuk tajuk seksyen */
+    content: '';
+    width: 80px;
+    height: 4px;
+    background-color: var(--secondary-color); /* Garisan kuning oren */
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+/* --- Gaya Seksyen Tentang Kami --- */
+    /* Latar belakang diambil dari 'section' umum */
+
+.about-content {
+    display: flex;
+    flex-wrap: wrap; /* Benarkan bungkus pada skrin kecil */
+    justify-content: center;
+    align-items: center;
+    gap: 40px; /* Jarak antara imej dan teks */
+    text-align: left;
+}
+
+.about-image {
+    /* Mengawal lebar kontena gambar pada desktop */
+    flex: 0 0 40%; /* Mengambil 40% dari ruang yang ada pada desktop (saiz lebih munasabah) */
+    max-width: 400px; /* Hadkan lebar maksimum kontena gambar kepada nilai yang munasabah */
+    text-align: center; /* Untuk memusatkan gambar jika lebih kecil dari kontena */
+}
+
+.about-image img {
+    max-width: 100%; /* Pastikan gambar tidak melebihi lebar kontena induknya (.about-image) */
+    height: 350px; /* Ketinggian tetap untuk imej */
+    object-fit: cover; /* Pastikan gambar meliputi ruang tanpa herot */
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.about-text {
+    flex: 1; /* Biarkan teks mengambil ruang yang ada */
+    min-width: 300px; /* Lebar minimum untuk teks */
+}
+
+.about-text p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    color: var(--text-dark);
+}
+
+/* Media Query untuk Mobile */
+@media (max-width: 768px) {
+    .about-image {
+        order: -1; /* Letakkan imej di atas pada mudah alih */
+        margin-bottom: 30px;
+        flex: unset; /* Reset flex properti pada mudah alih */
+        max-width: 80%; /* Berikan lebar maksimum 80% pada mudah alih */
+        width: auto; /* Memastikan ia menyesuaikan lebar */
+    }
+
+    .about-image img {
+        max-width: 100%; /* Pastikan gambar menyesuaikan dalam kontena barunya */
+        height: auto; /* Penting untuk responsif pada mobile */
+    }
+}
+
+.about-text {
+    flex: 1; /* Biarkan teks mengambil ruang yang ada */
+    min-width: 300px; /* Lebar minimum untuk teks */
+}
+
+.about-text p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    color: var(--text-dark);
+}
+
+/* --- Gaya Seksyen Produk --- */
+.products {
+    background-color: #fff; /* Latar belakang putih untuk produk */
+}
+
+.product-filters {
+    margin-bottom: 40px;
+}
+
+.product-filters .filter-btn {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    border: 1px solid #ddd;
+    padding: 10px 20px;
+    margin: 0 5px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.product-filters .filter-btn.active,
+.product-filters .filter-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border-color: var(--primary-color);
+}
+
+.product-gallery-wrapper {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden; /* Sembunyikan kandungan yang melimpah keluar */
+    padding-bottom: 50px; /* Ruang untuk dots */
+}
+
+.product-carousel {
+    display: flex; /* Guna flexbox untuk mengatur halaman */
+    /* Transition untuk .product-carousel harus di JavaScript, bukan di CSS */
+    /* transition: transform 0.8s ease-in-out; */
+}
+
+.carousel-page {
+    min-width: 100%; /* Setiap halaman mengambil lebar penuh kontena */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 kolum pada desktop */
+    gap: 30px; /* Jarak antara item produk */
+    padding: 0 15px; /* Padding untuk kontena halaman */
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.9); /* Mulakan sedikit kecil untuk kesan timbul */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out, visibility 0.6s ease-out;
+    position: absolute; /* Tetapkan posisi mutlak untuk tumpukan halaman */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Penting: Pastikan ia mengisi tinggi ibu bapa */
+    align-items: start; /* Pastikan item sejajar di atas */
+}
+
+.carousel-page.active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1); /* Kembali ke saiz asal, memberikan kesan timbul */
+    position: relative; /* Aktifkan halaman untuk mengambil ruang dalam aliran dokumen */
+}
+
+.product-item {
+    background-color: #fff;
+    border-radius: 15px; /* Lebih bulat untuk kesan 'bubble' */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Shadow yang lebih jelas */
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    padding-bottom: 20px;
+    cursor: pointer;
+    border: 1px solid #f0f0f0; /* Garis tepi lembut */
+    display: flex; /* Untuk susun atur dalam item produk */
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%; /* Memastikan semua item mempunyai ketinggian yang sama dalam grid */
+}
+
+.product-item:hover {
+    transform: translateY(-12px) scale(1.02); /* Kesan timbul lebih ketara */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Shadow lebih gelap bila hover */
+}
+
+.product-item img {
+    width: 100%;
+    height: 200px; /* Ketinggian tetap untuk imej */
+    object-fit: cover; /* Pastikan imej mengisi ruang tanpa herot */
+    border-bottom: 1px solid #eee;
+    margin-bottom: 15px;
+    border-radius: 15px 15px 0 0; /* Lengkungan hanya di atas */
+}
+
+.product-item h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color); /* Tajuk produk hijau segar */
+    margin-bottom: 10px;
+    padding: 0 15px;
+}
+
+/* Gaya untuk Navigasi Dots */
+.carousel-dots {
+    text-align: center;
+    margin-top: 30px;
+    position: absolute; /* Letakkan di bawah wrapper */
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%; /* Pastikan ia meliputi lebar penuh untuk centering */
+}
+
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: var(--secondary-color); /* Warna oren cerah untuk dot aktif */
+}
+
+.dot:hover {
+    background-color: #717171;
+}
+
+
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.service-item {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-8px);
+}
+
+.service-item i { /* Gaya untuk ikon Font Awesome dalam perkhidmatan */
+    font-size: 3rem;
+    color: var(--secondary-color); /* Ikon kuning oren */
+    margin-bottom: 20px;
+}
+
+.service-item h3 {
+    font-size: 1.8rem;
+    color: var(--primary-color); /* Tajuk perkhidmatan hijau segar */
+    margin-bottom: 15px;
+}
+
+.service-item p {
+    color: var(--text-dark);
+}
+
+/* --- Gaya Seksyen Hubungi Kami --- */
+.contact {
+    background-color: var(--bg-dark); /* Latar belakang gelap untuk bahagian hubungi, hijau kebiruan tua */
+    color: var(--text-light);
+}
+
+.contact h2 {
+    color: var(--secondary-color); /* Tajuk seksyen dengan warna oren cerah */
+}
+
+.contact h2::after { /* Garisan bawah untuk tajuk seksyen */
+    background-color: var(--text-light); /* Warna putih */
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    text-align: left;
+}
+
+.contact-form h3,
+.contact-info h3,
+.contact-map h3 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    color: var(--primary-color); /* Sub-tajuk dengan warna hijau segar */
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"],
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: rgba(68, 68, 68, 0.7); /* Latar input gelap, sedikit telus */
+    color: var(--text-light);
+    font-size: 1rem;
+    outline: none;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #bbb;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 2px rgba(255, 152, 0, 0.3); /* Shadow fokus oren */
+}
+
+.contact-info p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+}
+
+.contact-info i {
+    font-size: 1.5rem;
+    margin-right: 15px;
+    color: var(--secondary-color);
+}
+
+.contact-info a {
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: var(--secondary-color);
+}
+
+.contact-map iframe {
+    width: 100%;
+    height: 350px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Gaya Footer --- */
+footer {
+    background-color: var(--accent-color); /* Footer dengan warna hijau hutan */
+    color: var(--text-light);
+    padding: 30px 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Benarkan bungkus pada skrin kecil */
+}
+
+.footer-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--secondary-color);
+}
+
+/* --- Media Queries untuk Responsif --- */
+@media (max-width: 768px) {
+    /* Gaya untuk Navigasi Utama */
+    .main-nav {
+        max-height: 0; /* Sembunyikan secara lalai dengan ketinggian 0 */
+        opacity: 0;
+        overflow: hidden; /* Sembunyikan kandungan yang melimpah */
+        transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+        /* Tambahan gaya untuk paparan mobile */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 80px; /* Di bawah header */
+        left: 0;
+        background-color: var(--primary-color);
+        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .main-nav.active {
+        opacity: 1;
+        max-height: 500px; /* Nilai besar agar cukup untuk semua link */
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+    }
+
+    .main-nav ul li {
+        margin: 10px 0;
+    }
+
+    .mobile-menu-toggle {
+        display: block; /* Paparkan butang toggle pada skrin kecil */
+    }
+
+    /* Gaya untuk Hero Section */
+    .hero h2 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    /* Gaya untuk About & Contact Sections */
+    .about-content,
+    .contact-grid {
+        flex-direction: column; /* Mengubah susun atur kepada lajur */
+        text-align: center; /* Memusatkan teks */
+    }
+
+    .about-image {
+        order: -1; /* Letakkan imej di atas pada mudah alih */
+        margin-bottom: 30px;
+        flex: unset; /* Reset flex properti pada mudah alih */
+        max-width: 80%; /* Berikan lebar maksimum 80% pada mudah alih */
+        width: auto; /* Memastikan ia menyesuaikan lebar */
+    }
+
+    .about-image img {
+        max-width: 100%; /* Pastikan gambar menyesuaikan dalam kontena barunya */
+        height: auto; /* Penting untuk responsif pada mobile */
+    }
+
+    /* Gaya untuk Product Carousel pada Tablet/Mobile */
+    .carousel-page {
+        grid-template-columns: repeat(2, 1fr); /* 2 kolum pada mobile (tablet) */
+        gap: 20px;
+    }
+
+    .product-item {
+        margin: 0 auto; /* Tengah item jika ia tidak mengisi penuh lebar */
+    }
+
+    /* Gaya untuk Service Grids */
+    .service-grid {
+        grid-template-columns: 1fr; /* Satu kolum pada skrin kecil */
+    }
+
+    /* Gaya untuk Footer */
+    footer .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    /* Gaya untuk Pop-up Produk */
+    .popup-overlay {
+        display: none; /* Sembunyikan pop-up secara lalai */
+        position: fixed; /* Kekal di tempatnya walaupun scroll */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6); /* Latar belakang gelap */
+        justify-content: center;
+        align-items: center;
+        z-index: 2000; /* Pastikan di atas semua elemen lain */
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .popup-overlay.active {
+        opacity: 1;
+        visibility: visible;
+        display: flex; /* Paparkan apabila aktif */
+    }
+
+    .popup-content {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        max-width: 600px;
+        width: 90%;
+        position: relative;
+        text-align: left;
+        transform: translateY(-50px); /* Kesan sedikit animasi apabila muncul */
+        opacity: 0;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .popup-overlay.active .popup-content {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .popup-content .close-btn {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 2rem;
+        cursor: pointer;
+        color: #888;
+        transition: color 0.2s ease;
+    }
+
+    .popup-content .close-btn:hover {
+        color: #333;
+    }
+
+    .popup-content h3 {
+        font-size: 2rem;
+        color: var(--primary-color);
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .popup-content img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+
+    .popup-content p {
+        margin-bottom: 10px;
+        line-height: 1.8;
+        font-size: 1.1rem;
+        color: var(--text-dark);
+    }
+
+    .popup-content .btn {
+        margin-top: 20px;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-page {
+        grid-template-columns: 1fr; /* 1 kolum pada mobile yang sangat kecil */
+    }
+}
