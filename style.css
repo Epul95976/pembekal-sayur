@@ -377,9 +377,11 @@ section h2::after { /* Garisan bawah untuk tajuk seksyen */
 }
 
 .product-item:hover {
-    transform: none;
-    box-shadow: none;
+  
+    transform: translateY(-12px) scale(1.02); /* Kesan timbul lebih ketara */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Shadow lebih gelap bila hover */
 }
+  
 
 .product-item img {
     width: 100%;
@@ -391,9 +393,12 @@ section h2::after { /* Garisan bawah untuk tajuk seksyen */
 }
 
 .product-item h3 {
-    display: none;
+    font-size: 1.5rem;
+    color: var(--primary-color); /* Tajuk produk hijau segar */
+    margin-bottom: 10px;
+    padding: 0 15px;
 }
-
+  
 /* Gaya untuk Navigasi Dots */
 .carousel-dots {
     text-align: center;
