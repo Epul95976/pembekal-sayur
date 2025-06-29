@@ -13,7 +13,7 @@ body {
     /* kepada laluan gambar latar belakang sayur-sayuran anda yang betul */
     background: url('images/sayur background.jpg') no-repeat center center fixed;
     background-size: cover; /* Pastikan gambar meliputi seluruh ruang */
-    background-color: #f0f8f0; /* Warna fallback: Hijau lumut muda */
+    background-color: #9efd38; /* Warna fallback: Hijau lumut muda */
 }
 
 /* --- Variabel Warna (mudah untuk diurus) --- */
