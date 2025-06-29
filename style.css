@@ -57,7 +57,7 @@ header .container {
 }
 
 .logo img {
-    height: 150px; /* Saiz logo */
+    height: 100px; /* Saiz logo */
     margin-right: 10px;
     border-radius: 5px; /* Sedikit lengkungan pada logo */
 }
